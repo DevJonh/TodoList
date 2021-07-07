@@ -65,13 +65,16 @@ export class TodoService {
       duration: 3000,
       horizontalPosition: 'right',
       verticalPosition: 'top',
-      panelClass: isError ? ['msg-error'] : ['msg-success'],
+      panelClass: isError ? ['snack-error'] : ['snack-success'],
     });
   }
 
   handleError(e: any) {
-    this.showMessage('Ocorreu um erro!', true);
+    console.log(e);
 
+    if (e.statusText === 'Unknown Error') {
+      this.showMessage('Ocorreu um erro inesperado!', true);
+    }
     return throwError(e.message);
   }
 }

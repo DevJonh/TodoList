@@ -11,3 +11,14 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+
+.snack-success {
+  background-color: #34dd00bb;
+  color: #fff;
+  z-index: 3;
+}
+.snack-error {
+  background-color: #dd0000bb;
+  color: #fff;
+  z-index: 3;
+}

@@ -5,15 +5,14 @@ import { TodoEditComponent } from './components/todo-edit/todo-edit.component';
 import { TodoListComponent } from './components/todo-list/todo-list.component';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: '/todo-create' },
+  { path: '', pathMatch: 'full', redirectTo: '/todo-list' },
   { path: 'todo-create', component: TodoCreateComponent },
-  { path: 'todo-edit', component: TodoEditComponent},
-  { path: 'todo-list', component: TodoListComponent}
-
+  { path: 'todo-edit', component: TodoEditComponent },
+  { path: 'todo-list', component: TodoListComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
