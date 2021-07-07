@@ -13,6 +13,10 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatOptionModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 import { TodoCreateComponent } from './components/todo-create/todo-create.component';
 import { TodoEditComponent } from './components/todo-edit/todo-edit.component';
@@ -26,7 +30,13 @@ import { TodoListComponent } from './components/todo-list/todo-list.component';
     TodoCreateComponent,
     TodoEditComponent,
     TodoListComponent,
+    HeaderComponent,
+    FooterComponent,
+    TodoCreateComponent,
+    TodoEditComponent,
+    TodoListComponent,
   ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -36,6 +46,10 @@ import { TodoListComponent } from './components/todo-list/todo-list.component';
     MatToolbarModule,
     MatTableModule,
     MatButtonModule,
+    MatFormFieldModule,
+    MatOptionModule,
+    MatSelectModule,
+    MatPaginatorModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

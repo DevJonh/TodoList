@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Todo } from 'src/app/services/todo.model';
+import { TodoService } from 'src/app/services/todo.service';
 
 @Component({
   selector: 'app-todo-list',
@@ -16,14 +17,32 @@ export class TodoListComponent implements OnInit {
     'action',
   ];
 
-  dataSource: Todo[] = ELEMENT_DATA;
+  dataSource: any = [];
 
-  constructor() {}
+  constructor(private todoService: TodoService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.todoService.getAllTasks().subscribe((data) => {
+      this.dataSource = data;
+    });
+  }
 }
 
 const ELEMENT_DATA: Todo[] = [
+  {
+    id: 1,
+    dateOfCriation: new Date().toLocaleString(),
+    task: 'Lavar Louça',
+    dateOfconclusion: '',
+    status: 'Em andamento',
+  },
+  {
+    id: 1,
+    dateOfCriation: new Date().toLocaleString(),
+    task: 'Lavar Louça',
+    dateOfconclusion: '',
+    status: 'Em andamento',
+  },
   {
     id: 1,
     dateOfCriation: new Date().toLocaleString(),
