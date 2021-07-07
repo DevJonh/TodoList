@@ -14,9 +14,22 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { TodoCreateComponent } from './components/todo-create/todo-create.component';
 import { TodoEditComponent } from './components/todo-edit/todo-edit.component';
 import { TodoListComponent } from './components/todo-list/todo-list.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatOptionModule } from '@angular/material/core';
+
+import { MatSelectModule } from  '@angular/material/select';
+
+
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, FooterComponent, TodoCreateComponent, TodoEditComponent, TodoListComponent],
+  declarations: [
+    AppComponent,
+     HeaderComponent,
+     FooterComponent,
+     TodoCreateComponent, 
+     TodoEditComponent, 
+     TodoListComponent
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -24,6 +37,12 @@ import { TodoListComponent } from './components/todo-list/todo-list.component';
     HttpClientModule,
     MatSnackBarModule,
     MatToolbarModule,
+    MatFormFieldModule,
+    MatOptionModule,
+    
+    MatSelectModule
+
+
   ],
   providers: [],
   bootstrap: [AppComponent],
