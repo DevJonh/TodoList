@@ -1,0 +1,21 @@
+.footer {
+  position: fixed;
+  bottom: 0;
+
+  display: flex;
+  justify-content: center;
+}
+
+.footer span {
+  display: flex;
+  align-items: center;
+}
+
+.footer span i {
+  margin: 0 0.2rem;
+  color: #df0000;
+}
+
+.footer span strong {
+  margin-left: 0.3rem;
+}
