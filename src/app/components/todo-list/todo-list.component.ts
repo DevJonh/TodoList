@@ -26,6 +26,17 @@ export class TodoListComponent implements OnInit {
       this.dataSource = data;
     });
   }
+
+  deleteTask(id: number) {
+    if (window.confirm('Tem certeza que deseja excluir?')) {
+      this.todoService.deleteTask(id).subscribe((data) => {
+        this.todoService.showMessage('Tarefa excluída com sucesso!');
+        this.todoService.getAllTasks().subscribe((data) => {
+          this.dataSource = data;
+        });
+      });
+    }
+  }
 }
 
 const ELEMENT_DATA: Todo[] = [
