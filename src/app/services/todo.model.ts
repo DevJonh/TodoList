@@ -1,7 +1,7 @@
 export interface Todo {
   id?: number;
-  dateOfCriation: Date;
+  dateOfCriation: Date | string;
   task: string;
   status: string;
-  dateOfconclusion: Date;
+  dateOfconclusion: Date | string;
 }
