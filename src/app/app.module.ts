@@ -16,8 +16,11 @@ import { TodoEditComponent } from './components/todo-edit/todo-edit.component';
 import { TodoListComponent } from './components/todo-list/todo-list.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatOptionModule } from '@angular/material/core';
-
 import { MatSelectModule } from  '@angular/material/select';
+import { MatCardModule } from '@angular/material/card';
+import { MatGridListModule } from '@angular/material/grid-list'
+import {MatInputModule} from '@angular/material/input';
+
 
 
 
@@ -38,9 +41,11 @@ import { MatSelectModule } from  '@angular/material/select';
     MatSnackBarModule,
     MatToolbarModule,
     MatFormFieldModule,
-    MatOptionModule,
-    
-    MatSelectModule
+    MatOptionModule,    
+    MatSelectModule,
+    MatCardModule,
+    MatGridListModule,
+    MatInputModule
 
 
   ],
