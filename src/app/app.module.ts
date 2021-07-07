@@ -11,9 +11,12 @@ import { FooterComponent } from './components/template/footer/footer.component';
 
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { TodoCreateComponent } from './components/todo-create/todo-create.component';
+import { TodoEditComponent } from './components/todo-edit/todo-edit.component';
+import { TodoListComponent } from './components/todo-list/todo-list.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, FooterComponent],
+  declarations: [AppComponent, HeaderComponent, FooterComponent, TodoCreateComponent, TodoEditComponent, TodoListComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
