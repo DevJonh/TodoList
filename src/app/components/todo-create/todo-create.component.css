@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 main {
   width: 90%;
   margin: 4rem auto;
@@ -23,4 +24,15 @@ select {
   width: 12%;
   height: 3rem;
   font-size: 1rem;
+=======
+.example-card {
+    max-width: 400px;
+    background-color:#f3f1f5;
+  }
+
+.estilo {
+    margin: 100px 400px ;
+    padding: 20px;
+
+>>>>>>> 1646390bd94f9d8127e5dc3f96d0ca2be3896d9c
 }

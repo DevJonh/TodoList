@@ -17,9 +17,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatOptionModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
-import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatCardModule } from '@angular/material/card';
+import { MatGridListModule } from '@angular/material/grid-list';
 import { MatInputModule } from '@angular/material/input';
+import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 
 import { TodoCreateComponent } from './components/todo-create/todo-create.component';
@@ -52,8 +53,10 @@ import { TodoListComponent } from './components/todo-list/todo-list.component';
     MatFormFieldModule,
     MatOptionModule,
     MatSelectModule,
-    MatPaginatorModule,
     MatCardModule,
+    MatGridListModule,
+    MatInputModule,
+    MatPaginatorModule,
     MatInputModule,
     ReactiveFormsModule,
     FormsModule,
