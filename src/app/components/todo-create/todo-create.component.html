@@ -20,15 +20,26 @@
           >Este campo é <strong>obrigatório</strong>!</mat-error
         >
       </mat-form-field>
-      <button
-        class="btn-submit"
-        mat-raised-button
-        color="primary"
-        type="submit"
-        [disabled]="!formData.valid"
-      >
-        Cadastrar tarefa
-      </button>
+      <div class="button-container">
+        <button
+          class="btn-submit"
+          mat-raised-button
+          color="primary"
+          type="submit"
+          [disabled]="!formData.valid"
+        >
+          Cadastrar tarefa
+        </button>
+        <button
+          class="btn-back"
+          mat-raised-button
+          color="warn"
+          type="button"
+          (click)="back()"
+        >
+          Cancelar
+        </button>
+      </div>
     </form>
   </mat-card>
 </main>

@@ -2,7 +2,7 @@ import { TodoService } from 'src/app/services/todo.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Todo } from 'src/app/services/todo.model';
+import { Todo } from 'models/todo.model';
 
 @Component({
   selector: 'app-todo-create',
@@ -43,5 +43,9 @@ export class TodoCreateComponent implements OnInit {
       this.todoService.showMessage('Tarefa Cadastrada com sucesso!');
       this.router.navigate(['/todo-list']);
     });
+  }
+
+  back(): void {
+    this.router.navigate(['/todo-list']);
   }
 }

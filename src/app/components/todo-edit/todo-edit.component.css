@@ -19,8 +19,13 @@ select {
   font-size: 1rem;
 }
 
-.card button.btn-submit {
+.card button.btn-submit,
+.card button.btn-back {
   width: 12%;
   height: 3rem;
   font-size: 1rem;
+}
+
+.card button + button {
+  margin-left: 2rem;
 }

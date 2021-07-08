@@ -6,7 +6,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Todo } from 'src/app/services/todo.model';
+import { Todo } from 'models/todo.model';
 import { TodoService } from 'src/app/services/todo.service';
 
 @Component({
@@ -52,5 +52,9 @@ export class TodoEditComponent implements OnInit {
       this.todoService.showMessage('Tarefa Atualizada com sucesso!');
       this.router.navigate(['/todo-list']);
     });
+  }
+
+  back(): void {
+    this.router.navigate(['/todo-list']);
   }
 }

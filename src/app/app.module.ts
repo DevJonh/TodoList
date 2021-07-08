@@ -27,6 +27,8 @@ import { TodoCreateComponent } from './components/todo-create/todo-create.compon
 import { TodoEditComponent } from './components/todo-edit/todo-edit.component';
 import { TodoListComponent } from './components/todo-list/todo-list.component';
 
+import { FormartDate } from './pipes/format-date.pipe';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,6 +41,7 @@ import { TodoListComponent } from './components/todo-list/todo-list.component';
     FooterComponent,
     TodoCreateComponent,
     TodoEditComponent,
+    FormartDate,
   ],
 
   imports: [
