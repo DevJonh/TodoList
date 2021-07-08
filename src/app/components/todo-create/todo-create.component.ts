@@ -35,7 +35,7 @@ export class TodoCreateComponent implements OnInit {
   create(data: any): void {
     let newTodo = {
       ...data,
-      dateOfCreation: Date.now(),
+      dateOfCreation: new Date(),
       dateOfConclusion: data.status === 'Concluído' ? new Date() : '',
     };
 

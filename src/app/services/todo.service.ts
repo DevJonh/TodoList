@@ -4,7 +4,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
 
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { ShowMessageService } from './show-message.service';
 
 @Injectable({
@@ -61,7 +60,11 @@ export class TodoService {
     return this.http
       .put<Todo>(
         `${this.baseUrl}/tasks/${id}`,
-        { ...task, status: 'Concluído', dateOfConclusion: new Date() },
+        {
+          ...task,
+          status: 'Concluído',
+          dateOfConclusion: new Date(),
+        },
         this.httpOptions
       )
       .pipe(
