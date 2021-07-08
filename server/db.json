@@ -1,32 +1,18 @@
 {
   "tasks": [
     {
-      "id": 1,
-      "dateOfCriation": "",
-      "task": "Lavar a louça",
+      "task": "Dar banho no cachorro",
       "status": "Concluído",
-      "dateOfconclusion": ""
-    },
-    {
-      "id": 2,
-      "dateOfCriation": "",
-      "task": "Lavar a louça",
-      "status": "Concluído",
-      "dateOfconclusion": ""
-    },
-    {
-      "id": 3,
-      "dateOfCriation": "",
-      "task": "Lavar a louça",
-      "status": "Concluído",
-      "dateOfconclusion": ""
-    },
-    {
       "id": 4,
-      "dateOfCriation": "",
-      "task": "Lavar a louça",
-      "status": "Concluído",
-      "dateOfconclusion": ""
+      "dateOfCreation": "2021-07-08T00:24:10.889Z",
+      "dateOfConclusion": "2021-07-08T01:37:11.947Z"
+    },
+    {
+      "task": "Varrer a Casa",
+      "status": "Em Andamento",
+      "dateOfCreation": "2021-07-08T01:33:43.471Z",
+      "dateOfConclusion": "",
+      "id": 10
     }
   ]
 }

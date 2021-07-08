@@ -1,21 +1,34 @@
-<div>
-    <mat-form-field appearance="fill">
-        <mat-label>Tarefa</mat-label>
-        <input matInput>       >
-      </mat-form-field>
-
+<main>
+  <mat-card class="card">
+    <mat-card-title>Nova Tarefa</mat-card-title>
+    <form [formGroup]="formData" (ngSubmit)="create(formData.value)">
       <mat-form-field appearance="fill">
         <mat-label>Descrição</mat-label>
-        <textarea matInput></textarea>
+        <input matInput formControlName="task" [formControl]="task" />
+        <mat-error *ngIf="task.hasError('required')"
+          >Este campo é <strong>obrigatório</strong>!</mat-error
+        >
       </mat-form-field>
 
       <mat-form-field appearance="fill">
         <mat-label>Status</mat-label>
-        <mat-select>
-          <mat-option value="one">Concluído</mat-option>
-          <mat-option value="two">Pendente</mat-option>
-          <mat-option value="tree">Realizado</mat-option>
+        <mat-select formControlName="status" [value]="todo.status">
+          <mat-option value="Concluído">Concluído</mat-option>
+          <mat-option value="Em Andamento">Em Andamento</mat-option>
         </mat-select>
+        <mat-error *ngIf="status.hasError('required')"
+          >Este campo é <strong>obrigatório</strong>!</mat-error
+        >
       </mat-form-field>
-      
-</div>
+      <button
+        class="btn-submit"
+        mat-raised-button
+        color="primary"
+        type="submit"
+        [disabled]="!formData.valid"
+      >
+        Cadastrar tarefa
+      </button>
+    </form>
+  </mat-card>
+</main>

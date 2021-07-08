@@ -34,7 +34,7 @@ main {
 
 .mat-column-status,
 .mat-column-action {
-  width: 8rem;
+  width: 10rem;
 }
 .mat-column-criation,
 .mat-column-finished {
@@ -42,7 +42,7 @@ main {
 }
 
 .mat-column-id {
-  width: 3rem;
+  width: 4rem;
 }
 
 .mat-column-action span {

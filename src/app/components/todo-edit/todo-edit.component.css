@@ -1,0 +1,26 @@
+main {
+  width: 90%;
+  margin: 4rem auto;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin-top: 2.5rem;
+}
+
+.mat-form-field {
+  margin-bottom: 1rem;
+}
+
+input,
+select {
+  font-size: 1rem;
+}
+
+.card button.btn-submit {
+  width: 12%;
+  height: 3rem;
+  font-size: 1rem;
+}

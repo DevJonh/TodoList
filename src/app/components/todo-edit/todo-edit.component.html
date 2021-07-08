@@ -1,1 +1,39 @@
-<p>todo-edit works!</p>
+<main>
+  <mat-card class="card">
+    <mat-card-title>Editar Tarefa</mat-card-title>
+    <form [formGroup]="formData" (ngSubmit)="update(formData.value)">
+      <mat-form-field appearance="fill">
+        <mat-label>Cod.</mat-label>
+        <input matInput [value]="todo.id" readonly disabled />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Descrição</mat-label>
+        <input matInput formControlName="task" [formControl]="task" />
+        <mat-error *ngIf="task.hasError('required')"
+          >Este campo é <strong>obrigatório</strong>!</mat-error
+        >
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Status</mat-label>
+        <mat-select formControlName="status" [value]="todo.status">
+          <mat-option value="Concluído">Concluído</mat-option>
+          <mat-option value="Em Andamento">Em Andamento</mat-option>
+        </mat-select>
+        <mat-error *ngIf="status.hasError('required')"
+          >Este campo é <strong>obrigatório</strong>!</mat-error
+        >
+      </mat-form-field>
+      <button
+        class="btn-submit"
+        mat-raised-button
+        color="primary"
+        type="submit"
+        [disabled]="!formData.valid"
+      >
+        Atualizar tarefa
+      </button>
+    </form>
+  </mat-card>
+</main>

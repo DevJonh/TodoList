@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 import { Todo } from 'src/app/services/todo.model';
 import { TodoService } from 'src/app/services/todo.service';
 
@@ -17,14 +20,25 @@ export class TodoListComponent implements OnInit {
     'action',
   ];
 
-  dataSource: any = [];
+  todoData: any;
+  dataSource = new MatTableDataSource();
+
+  data: any;
+  @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
+  @ViewChild(MatSort, { static: true }) sort!: MatSort;
 
   constructor(private todoService: TodoService) {}
 
   ngOnInit(): void {
     this.todoService.getAllTasks().subscribe((data) => {
-      this.dataSource = data;
+      this.todoData = data;
+      this.dataSource.data = this.todoData;
     });
+  }
+
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
   }
 
   deleteTask(id: number) {
@@ -32,33 +46,20 @@ export class TodoListComponent implements OnInit {
       this.todoService.deleteTask(id).subscribe((data) => {
         this.todoService.showMessage('Tarefa excluída com sucesso!');
         this.todoService.getAllTasks().subscribe((data) => {
-          this.dataSource = data;
+          this.todoData = data;
+          this.dataSource.data = this.todoData;
         });
       });
     }
   }
-}
 
-const ELEMENT_DATA: Todo[] = [
-  {
-    id: 1,
-    dateOfCriation: new Date().toLocaleString(),
-    task: 'Lavar Louça',
-    dateOfconclusion: '',
-    status: 'Em andamento',
-  },
-  {
-    id: 1,
-    dateOfCriation: new Date().toLocaleString(),
-    task: 'Lavar Louça',
-    dateOfconclusion: '',
-    status: 'Em andamento',
-  },
-  {
-    id: 1,
-    dateOfCriation: new Date().toLocaleString(),
-    task: 'Lavar Louça',
-    dateOfconclusion: '',
-    status: 'Em andamento',
-  },
-];
+  doneTask(id: number, element: Todo) {
+    this.todoService.updateTaskElement(id, element).subscribe(() => {
+      this.todoService.showMessage('Parabéns por sua tarefa concluída!');
+      this.todoService.getAllTasks().subscribe((data) => {
+        this.todoData = data;
+        this.dataSource.data = this.todoData;
+      });
+    });
+  }
+}

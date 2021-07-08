@@ -52,6 +52,18 @@ export class TodoService {
         catchError((e) => this.handleError(e))
       );
   }
+  updateTaskElement(id: number, task: Todo): Observable<Todo> {
+    return this.http
+      .put<Todo>(
+        `${this.baseUrl}/tasks/${id}`,
+        { ...task, status: 'Concluído', dateOfConclusion: new Date() },
+        this.httpOptions
+      )
+      .pipe(
+        retry(1),
+        catchError((e) => this.handleError(e))
+      );
+  }
 
   deleteTask(id: number) {
     return this.http.delete<Todo>(`${this.baseUrl}/tasks/${id}`).pipe(
