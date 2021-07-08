@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Todo } from 'src/app/models/todo.model';
+import { ShowMessageService } from 'src/app/services/show-message.service';
 
 @Component({
   selector: 'app-todo-create',
@@ -20,7 +21,8 @@ export class TodoCreateComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private todoService: TodoService
+    private todoService: TodoService,
+    private message: ShowMessageService
   ) {
     this.formData = new FormGroup({
       task: this.task,
@@ -30,17 +32,15 @@ export class TodoCreateComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  definitionForm() {}
-
   create(data: any): void {
     let newTodo = {
       ...data,
-      dateOfCreation: new Date(),
+      dateOfCreation: Date.now(),
       dateOfConclusion: data.status === 'Concluído' ? new Date() : '',
     };
 
     this.todoService.createTask(newTodo).subscribe(() => {
-      this.todoService.showMessage('Tarefa Cadastrada com sucesso!');
+      this.message.showMessage('Tarefa Cadastrada com sucesso!');
       this.router.navigate(['/todo-list']);
     });
   }

@@ -7,6 +7,7 @@ import {
 } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Todo } from 'src/app/models/todo.model';
+import { ShowMessageService } from 'src/app/services/show-message.service';
 import { TodoService } from 'src/app/services/todo.service';
 
 @Component({
@@ -25,7 +26,8 @@ export class TodoEditComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private todoService: TodoService
+    private todoService: TodoService,
+    private message: ShowMessageService
   ) {
     this.formData = new FormGroup({
       task: this.task,
@@ -49,7 +51,7 @@ export class TodoEditComponent implements OnInit {
     };
 
     this.todoService.updateTask(this.id, newTodo).subscribe(() => {
-      this.todoService.showMessage('Tarefa Atualizada com sucesso!');
+      this.message.showMessage('Tarefa Atualizada com sucesso!');
       this.router.navigate(['/todo-list']);
     });
   }

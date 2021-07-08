@@ -1,8 +1,9 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Todo } from 'src/app/models/todo.model';
+import { ShowMessageService } from 'src/app/services/show-message.service';
 import { TodoService } from 'src/app/services/todo.service';
 
 @Component({
@@ -27,14 +28,20 @@ export class TodoListComponent implements OnInit {
   @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort!: MatSort;
 
-  constructor(private todoService: TodoService) {}
+  constructor(
+    private todoService: TodoService,
+    private messageService: ShowMessageService
+  ) {}
 
   ngOnInit(): void {
     this.todoService.getAllTasks().subscribe((data) => {
+      this.todoService.loading = false;
       this.todoData = data;
       this.dataSource.data = this.todoData;
     });
   }
+
+  ngOnChanges() {}
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
@@ -42,9 +49,8 @@ export class TodoListComponent implements OnInit {
   }
 
   deleteTask(id: number) {
-    if (window.confirm('Tem certeza que deseja excluir?')) {
-      this.todoService.deleteTask(id).subscribe((data) => {
-        this.todoService.showMessage('Tarefa excluída com sucesso!');
+    if (window.confirm('Deseja realmente excluir esta tarefa?')) {
+      this.todoService.deleteTask(id).subscribe(() => {
         this.todoService.getAllTasks().subscribe((data) => {
           this.todoData = data;
           this.dataSource.data = this.todoData;
@@ -55,7 +61,7 @@ export class TodoListComponent implements OnInit {
 
   doneTask(id: number, element: Todo) {
     this.todoService.updateTaskElement(id, element).subscribe(() => {
-      this.todoService.showMessage('Parabéns por sua tarefa concluída!');
+      this.messageService.showMessage('Parabéns por sua tarefa concluída!');
       this.todoService.getAllTasks().subscribe((data) => {
         this.todoData = data;
         this.dataSource.data = this.todoData;

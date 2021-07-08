@@ -1,18 +1,18 @@
 {
   "tasks": [
     {
-      "task": "Apresentar a versão inicial do App 1",
-      "status": "Concluído",
-      "id": 1,
-      "dateOfCreation": "2021-07-08T12:11:17.324Z",
-      "dateOfConclusion": "2021-07-08T12:36:21.826Z"
+      "task": "Lavar a louça",
+      "status": "Em Andamento",
+      "dateOfCreation": 1625766811299,
+      "dateOfConclusion": "",
+      "id": 1
     },
     {
-      "task": "Pensar em melhorias para o App",
-      "status": "Em Andamento",
-      "id": 2,
-      "dateOfCreation": "2021-07-08T12:12:14.651Z",
-      "dateOfConclusion": ""
+      "task": "Teste",
+      "status": "Concluído",
+      "dateOfCreation": 1625766828444,
+      "dateOfConclusion": "2021-07-08T17:55:07.433Z",
+      "id": 2
     }
   ]
 }
