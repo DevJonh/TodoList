@@ -2,7 +2,7 @@ import { TodoService } from 'src/app/services/todo.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Todo } from 'models/todo.model';
+import { Todo } from 'src/app/models/todo.model';
 
 @Component({
   selector: 'app-todo-create',
